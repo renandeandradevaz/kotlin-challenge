@@ -1,0 +1,29 @@
+KOTLIN CHALLENGE
+
+I chose kotlin as a programming language for this challenge because it is a simple language to understand and I already have a good experience with it.
+
+About the design decision: I tried to keep the clean code. Each class and function has its own responsibility.
+
+I wrote some tests in the test package to be sure that some future modifications will not afect the code behavior.
+
+To run the examples, you just need to have the docker installed on your machine.
+
+The command to build de docker image is:
+
+============================================
+docker build -t kotlinchallenge . --no-cache
+============================================
+
+This command above already run the tests. If something goes wrong, the build will not finish.
+Maybe this command could take some minutes to finish. Because it has to download some dependencies and build the project.
+
+
+And the commands below to run the application in an interactive mode.
+
+======================================================================================================
+docker run -it -e FILE_NAME=csvs/example1.csv -e DATE=2020-04-01 kotlinchallenge
+docker run -it -e FILE_NAME=csvs/example2.csv -e DATE=2021-01-01 kotlinchallenge
+docker run -it -e FILE_NAME=csvs/example3.csv -e DATE=2021-01-01 -e PRECISION_DIGITS=2 kotlinchallenge
+======================================================================================================
+
+PS: If you modify some csv file, you have to build the docker image again. The csv files are placed inside the docker image. I did that way because it's simpler for demonstrating purposes. But in a production environment, we could get the files on amazon s3, for example, or some similar service.
